@@ -7,8 +7,10 @@
 //
 
 #import "ViewController.h"
+#include <stdlib.h>
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *labelNumber;
 
 @end
 
@@ -19,5 +21,10 @@
     // Do any additional setup after loading the view.
 }
 
+- (IBAction)buttonPressed:(UIButton *)sender {
+    int randomNumber = arc4random_uniform(1000);
+    NSString* randomNumberString = [@(randomNumber) stringValue];
+    _labelNumber.text = randomNumberString;
+}
 
 @end
